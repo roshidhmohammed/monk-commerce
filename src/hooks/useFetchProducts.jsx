@@ -35,7 +35,7 @@ const useFetchProducts = ({ searchTerm, page }) => {
         }
       }
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error("Error fetching products:");
     } finally {
       setLoading(false);
     }

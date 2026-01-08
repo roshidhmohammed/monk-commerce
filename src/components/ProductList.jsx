@@ -23,7 +23,7 @@ const ProductList = () => {
   };
 
   return (
-    <div className=" mt-18.75  lg:px-60.25 px-5 w-full pb-20">
+    <div className=" mt-18.75  lg:px-55.25 sm:px-5 px-2 w-full pb-20">
       <div>
         <h2 className="text-gray-300 font-semibold text-xl">Add Products</h2>
       </div>
@@ -34,11 +34,11 @@ const ProductList = () => {
           selectedProducts={selectedProducts}
         />
       </div>
-      <div className=" flex justify-end mr-10">
+      <div className=" flex justify-end sm:mr-10">
         <Button
           text="Add Product"
           onClick={handleEmptyProducts}
-          className=" bg-white text-green border-green font-bold border px-5 py-3 rounded-md mt-5"
+          className=" bg-white text-green-100 border-green-100 font-bold border px-5 py-3 rounded-md mt-5"
         />
       </div>
     </div>

@@ -18,7 +18,7 @@ const VariantLevelTable = ({
       type="VARIANT"
     >
       {(provided) => (
-        <tbody ref={provided.innerRef} {...provided.droppableProps}>
+        <tbody  ref={provided.innerRef} {...provided.droppableProps}>
           {selectedProducts.map((data, index) => {
             return (
               <Draggable
@@ -28,6 +28,7 @@ const VariantLevelTable = ({
               >
                 {(provided, snapshot) => (
                   <tr
+                 
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     style={onDragUpdateStyle(
@@ -35,13 +36,15 @@ const VariantLevelTable = ({
                       snapshot
                     )}
                   >
-                    <td {...provided.dragHandleProps}>
+                    <td {...provided.dragHandleProps} >
                       <RowIcon />
                     </td>
+                     {/* <td></td> */}
+                    {/* <td className="sm:hidden block"></td> */}
 
                     <td>
-                      <div className="flex gap-3 items-center mr-3 my-2">
-                        <div className="flex justify-between items-center bg-gray-200 px-2 py-1 rounded w-full">
+                      <div className="flex sm:gap-3 items-center sm:mr-2 mr-1 my-2">
+                        <div className="flex justify-between items-center bg-gray-200 px-2 py-1 sm:h-12 rounded w-full ">
                           <span>{data?.title}</span>
 
                           <EditIcon
@@ -57,8 +60,7 @@ const VariantLevelTable = ({
                         </div>
                       </div>
                     </td>
-
-                    <td></td>
+                        
 
                     <td>
                       {allProducts?.length > 1 && (
@@ -69,6 +71,8 @@ const VariantLevelTable = ({
                         />
                       )}
                     </td>
+               
+
                   </tr>
                 )}
               </Draggable>

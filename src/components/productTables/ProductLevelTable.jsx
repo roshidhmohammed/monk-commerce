@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// MediaQuery for responsive
+import { useMediaQuery } from "react-responsive";
+
 // Redux Imports
 import { useDispatch, useSelector } from "react-redux";
 import { addSelectedProduct } from "../../utils/slices/selectedProductSlice";
@@ -25,6 +28,10 @@ import VariantsTableRow from "./VariantLevelTable";
 const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
   const [openVariantId, setopenVariantId] = useState(null);
   let allProducts = useSelector((state) => state.selectedProduct);
+
+  const isMobile = useMediaQuery({ maxWidth: 700 });
+
+
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -110,14 +117,14 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
   };
 
   return (
-    <div className={heading1?.trim() === "" ? "pl-10" : ""}>
+    <div className={heading1?.trim() === "" ? "sm:pl-10 pl-1" : ""}>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <table className=" w-full border-collapse">
           <thead className="text-left">
             <tr>
               <th className="w-5"></th>
-              <th>{heading1}</th>
-              <th className="w-60">{heading2}</th>
+              <th >{heading1}</th>
+              <th className="sm:w-60 ">{heading2}</th>
               <th className="w-5"></th>
             </tr>
           </thead>
@@ -154,11 +161,11 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
                               </td>
 
                               <td>
-                                <div className="flex gap-3 items-center mr-3 my-2">
+                                <div className="flex sm:gap-3 gap-1 items-center sm:mr-3 mr-1 my-2">
                                   <span>{index + 1}</span>
 
-                                  <div className="flex justify-between items-center bg-gray-200 px-2 py-1 rounded w-full">
-                                    <span>{data?.product?.title}</span>
+                                  <div className="flex justify-between items-center bg-gray-200 px-2 sm:py-1 sm:h-12 rounded w-full">
+                                    <span className="">{data?.product?.title}</span>
                                     <EditIcon
                                       handleEditProduct={() =>
                                         handleEditProduct(
@@ -193,7 +200,7 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
                                           value
                                         );
                                       }}
-                                      className="border border-gray-100  px-2 rounded-md w-30 h-10 input-focus"
+                                      className="border  border-gray-100  px-2 rounded-md sm:w-30 sm:h-12 input-focus"
                                     />
 
                                     <select
@@ -204,7 +211,7 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
                                           e.target.value
                                         )
                                       }
-                                      className="border border-gray-100 rounded-md px-3 py-2.5 input-focus "
+                                      className="border border-gray-100 rounded-md sm:px-3 sm:py-2.5 input-focus sm:h-12 "
                                     >
                                       <option value="% off">% off</option>
                                       <option value="flat off">flat off</option>
@@ -220,7 +227,7 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
                                           data?.product?.id
                                         )
                                       }
-                                      className="bg-green-100 text-white px-3.5 py-1 rounded-md "
+                                      className="bg-green-100 sm:h-12 sm:w-57 text-white px-3.5 py-1 rounded-md "
                                     />
                                   )
                                 )}
@@ -242,9 +249,9 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
                             </tr>
 
                             {data?.variants?.length > 1 && (
-                              <tr>
-                                <td colSpan={2}>
-                                  <div className="flex justify-end mr-3">
+                              <tr >
+                                <td colSpan={isMobile ?3:2} >
+                                  <div className="flex justify-end sm:mr-3">
                                     {isVariantOpen ? (
                                       <Button
                                         text="Hide Variants ˄"

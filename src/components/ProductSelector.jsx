@@ -75,7 +75,7 @@ const ProductSelector = () => {
         (item) => item.product?.id === product.id
       );
 
-      // PRODUCT NOT ADDED YET → add product + variant
+      // PRODUCT NOT ADDED YET -> add product + variant
       if (productIndex === -1) {
         return [
           ...prev,
@@ -165,7 +165,6 @@ const ProductSelector = () => {
     dispatch(addSelectedProduct(mergedProducts));
     navigate("/");
   };
-  console.log(selectedProducts);
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
