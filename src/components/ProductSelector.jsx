@@ -31,7 +31,7 @@ const ProductSelector = () => {
   });
 
   const filterProducts = (products) => {
-    // If nothing is selected → return original list
+    // If nothing is selected -> return original list
     if (!allProducts || !Array.isArray(allProducts) || !editproduct) {
       setFilteredFetchProducts(products);
       return;
@@ -187,7 +187,7 @@ const ProductSelector = () => {
             placeholder="Search product"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full border rounded-md px-3 border-gray-100 py-2 text-sm focus:ring-2 focus:ring-gray-300 outline-none"
+            className="w-full border rounded-md px-3 border-gray-100 py-2 text-sm focus:ring-2 focus:ring-green-100  outline-none"
           />
         </div>
 
@@ -266,25 +266,12 @@ const ProductSelector = () => {
               onClick={() => handleCancel(navigate)}
               className="px-4 py-2 border rounded-md cursor-pointer"
             />
-            {/* <button
-              className="px-4 py-2 border rounded-md cursor-pointer"
-              onClick={() => handleCancel(navigate)}
-            >
-              Cancel
-            </button> */}
 
             <Button
               text="Add"
               onClick={() => handleSelectedProducts()}
               className="px-5 py-2 bg-green-100 text-white rounded-md cursor-pointer"
             />
-
-            {/* <button
-              className="px-5 py-2 bg-green-100 text-white rounded-md cursor-pointer"
-              onClick={handleSelectedProducts}
-            >
-              Add
-            </button> */}
           </div>
         </div>
       </div>
