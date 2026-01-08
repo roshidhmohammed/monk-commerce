@@ -39,8 +39,6 @@ const VariantLevelTable = ({
                     <td {...provided.dragHandleProps} >
                       <RowIcon />
                     </td>
-                     {/* <td></td> */}
-                    {/* <td className="sm:hidden block"></td> */}
 
                     <td>
                       <div className="flex sm:gap-3 items-center sm:mr-2 mr-1 my-2">
