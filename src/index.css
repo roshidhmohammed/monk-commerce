@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-green-100: #008060;
+  --color-white: #FFFFFF;
+  --color-gray-100: #0000001A;
+  --color-gray-300: #202223;
+  --color-gray-400: #000000E5;
+  --color-blue-100: #006EFF
+}
+
+@layer components {
+  .btn-primary {
+    background-color: transparent;
+    color: var(--color-blue-100);
+    font-weight: 500;
+    text-decoration-line: underline;
+  }
+}
+
+.input-focus {
+  @apply border border-gray-100 focus:border-green-100 focus:outline-none focus:ring-1 focus:ring-green-100;
+}
+
+input[type="checkbox"]:checked::after {
+  content: url("./assets/icons/tick.svg");
+  font-size: 16px;
+  font-weight: bold;
+}
+
+html {
+  scroll-behavior: smooth;
+}
