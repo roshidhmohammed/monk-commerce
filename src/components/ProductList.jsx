@@ -1,7 +1,6 @@
 import ListTable from "./productTables/ProductLevelTable";
 import Button from "../common/Button";
 import { useDispatch, useSelector } from "react-redux";
-// import { add } from "@dnd-kit/utilities";
 import { addSelectedProduct } from "../utils/slices/selectedProductSlice";
 
 const ProductList = () => {

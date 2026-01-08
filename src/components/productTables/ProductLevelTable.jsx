@@ -14,9 +14,9 @@ import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
 // components Imports
 import Button from "../../common/Button";
-import RowIcon from "../icons/RowIcon";
-import EditIcon from "../icons/EditIcon";
-import CloseIcon from "../icons/CloseIcon";
+import RowIcon from "../../common/icons/RowIcon";
+import EditIcon from "../../common/icons/EditIcon";
+import CloseIcon from "../../common/icons/CloseIcon";
 
 // Helpers Function
 import { onDragUpdateStyle } from "../../helpers/onDragUpdateStyle";

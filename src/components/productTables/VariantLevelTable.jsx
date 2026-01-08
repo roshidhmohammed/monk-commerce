@@ -1,7 +1,7 @@
 import { onDragUpdateStyle } from "../../helpers/onDragUpdateStyle";
-import CloseIcon from "../icons/CloseIcon";
-import EditIcon from "../icons/EditIcon";
-import RowIcon from "../icons/RowIcon";
+import CloseIcon from "../../common/icons/CloseIcon";
+import EditIcon from "../../common/icons/EditIcon";
+import RowIcon from "../../common/icons/RowIcon";
 
 // Drag and Drop Imports
 import { Droppable, Draggable } from "@hello-pangea/dnd";
