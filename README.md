@@ -1,5 +1,5 @@
 # Monk Commerce - Frontend
-This readme file provides details such as the Deployment URL, project overview, technologies used, approach taken to implement features and solve problems, amnd the application architecture.
+This readme file provides details such as the Deployment URL, project overview, technologies used, approach taken to implement features and the thought process behind the areas that were unclear, amnd the application architecture.
 
 ## Deployment URL
  - Live Link - https://695fc481f76af1b540be7c43--monk-commerce-1.netlify.app/
@@ -19,7 +19,7 @@ This readme file provides details such as the Deployment URL, project overview, 
  - **@hello-pangea/dnd** - For implementing the drag and drop feature.
  - **@reduxjs/toolkit** - For state management and sharing state across components.
 
- ## Approach used to implement features
+ ## Approach used to implement features and the thought process behind the areas that were unclear
  - In this project, the product selected by the user from the fetched product list are stored in the **Redux store** to make the data accesible across multiple components.
  - But if the user refreshes the page, then all the datas/state is lost (not persisting).
  - Alternatives consideration for persisting data outside Redux include:
