@@ -17,7 +17,7 @@ const ProductSelector = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [page, setPage] = useState(1);
   const [selectedProducts, setSelectedProducts] = useState([]);
-  // const [loading, setLoading] = useState(false); // Removed local loading state
+  // const [loading, setLoading] = useState(false);
   const endPage = useRef(null);
   const dispatch = useDispatch();
 
@@ -32,41 +32,51 @@ const ProductSelector = () => {
 
   const filterProducts = (products) => {
     // If nothing is selected -> return original list
-    if (!allProducts || !Array.isArray(allProducts) || !editproduct) {
+    if (
+      allProducts[0]?.product === null ||
+      !Array.isArray(allProducts) ||
+      !editproduct
+    ) {
       setFilteredFetchProducts(products);
       return;
     }
 
-    // Collect all selected variant IDs
-    const selectedVariantIds = allProducts
-      .flatMap((p) => p?.variants ?? [])
-      .map((v) => v?.id);
+    const { index, type, variantId, prodId } = editproduct;
 
-    // Build new product list
-    const filtered = products
-      .map((product) => {
-        // Filter variants NOT already selected
-        const remainingVariants = product?.variants?.filter(
-          (v) => !selectedVariantIds.includes(v.id)
-        );
+    if (type === "product") {
+      const filtered = products?.filter(
+        (prod) =>
+          !allProducts?.some((selected) => selected?.product?.id === prod?.id)
+      );
 
-        // If no variants remain → remove product
-        if (!remainingVariants?.length) return null;
+      setFilteredFetchProducts(filtered);
+      return;
+    }
 
-        // Otherwise return product with remaining variants
-        return {
-          ...product,
-          variants: remainingVariants,
-        };
-      })
-      .filter(Boolean); // remove nulls
+    if (type === "variant") {
+      const selectedProductsExcludingEditProduct = products?.filter((prod) =>
+        allProducts?.some(
+          (selected) =>
+            selected?.product?.id === prod?.id &&
+            selected?.product?.id !== prodId
+        )
+      );
 
-    setFilteredFetchProducts(filtered);
+      const visibleProductsForVariantSelection = products?.filter(
+        (prod) =>
+          !selectedProductsExcludingEditProduct?.some(
+            (selected) => selected?.id === prod?.id
+          )
+      );
+
+      setFilteredFetchProducts(visibleProductsForVariantSelection);
+      return;
+    }
   };
 
   useEffect(() => {
     filterProducts(products);
-  }, [products, editproduct, selectedProducts]);
+  }, [products]);
 
   const addToSelectedProduct = (variant, product) => {
     setSelectedProducts((prev) => {

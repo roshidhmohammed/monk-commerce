@@ -10,24 +10,20 @@ export const removeProductOrVariant = ({
     return allProducts.filter((prod) => prod.id !== emptyProdId);
   }
 
-  // Case 2: Removing the current products if only one variants exists
+  // Case 2: Remove entire product if only one variant exists
   if (selectedProductsLength === 1) {
     return allProducts.filter((prod) => prod.product?.id !== productId);
   }
 
-  // Case 3: Removing the variants from the current product
-  return allProducts
-    .map((prod) => {
-      if (prod.product?.id !== productId) return prod;
+  // Case 3: Remove only the variant (KEEP empty product)
+  return allProducts.map((prod) => {
+    if (prod.product?.id !== productId) return prod;
 
-      const filteredVariants = prod.variants.filter(
+    return {
+      ...prod,
+      variants: prod.variants.filter(
         (variant) => variant.id !== variantId
-      );
-
-      return {
-        ...prod,
-        variants: filteredVariants,
-      };
-    })
-    .filter((prod) => prod.variants.length > 0);
+      ),
+    };
+  });
 };

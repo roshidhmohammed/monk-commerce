@@ -142,8 +142,8 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
 
                     return (
                       <Draggable
-                        key={data?.product?.id}
-                        draggableId={data?.product?.id?.toString()}
+                        key={data?.product?.id || data?.id}
+                        draggableId={data?.product?.id?.toString() || data?.id?.toString()}
                         index={index}
                       >
                         {(provided, snapshot) => (
@@ -234,7 +234,7 @@ const ProductLevelTable = ({ heading1, heading2, selectedProducts }) => {
                               </td>
 
                               <td>
-                                {data?.id && (
+                                {(data?.id &&data.product !== null) && (
                                   <CloseIcon
                                     handleRemove={() =>
                                       handleRemove(

@@ -23,7 +23,7 @@ export const reorderSelectedProducts = ({ allProducts, result }) => {
     if (sourceProductId !== destProductId) return allProducts;
 
     return allProducts.map((prod) => {
-      if (prod.product.id !== sourceProductId) return prod;
+      if (prod?.product?.id !== sourceProductId) return prod;
 
       const variants = Array.from(prod.variants);
       const [movedVariant] = variants.splice(source.index, 1);
