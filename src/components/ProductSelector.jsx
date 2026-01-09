@@ -33,7 +33,7 @@ const ProductSelector = () => {
   const filterProducts = (products) => {
     // If nothing is selected -> return original list
     if (
-      allProducts[0]?.product === null ||
+     (allProducts?.length>0 && allProducts[0]?.product === null) ||
       !Array.isArray(allProducts) ||
       !editproduct
     ) {
