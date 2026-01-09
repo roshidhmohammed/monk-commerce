@@ -2,7 +2,7 @@
 This readme file provides details such as the Deployment URL, project overview, technologies used, approach taken to implement features and the thought process behind the areas that were unclear, amnd the application architecture.
 
 ## Deployment URL
- - Live Link - https://695fc481f76af1b540be7c43--monk-commerce-1.netlify.app/
+ - Live Link - https://monk-commerce-ruby.vercel.app/
 
 ## Project Overview
   This application aims to:
