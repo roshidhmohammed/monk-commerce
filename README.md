@@ -28,6 +28,7 @@ This readme file provides details such as the Deployment URL, project overview, 
  - Image sizes were optimized to improve application performance, especially on smaller devices.
  - **Function recursion** was utilized to maintain code reusability for both product-level and variant-level tables.
  - Custom utility classes and variables were created in the `index.css` file using Tailwind CSS features to ensure **reusability, extensibility, and maintainability**.
+ - Based on the current implementation, users can add a product's variants even if there is no stock available  since handling this corner case is not mentioned in the assignment documentation.
 
 
 ## Application Architecture
